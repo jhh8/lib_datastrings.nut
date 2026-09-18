@@ -60,7 +60,8 @@ if ( "Input" in self.GetScriptScope() )
 	BaseInput <- Input;
 else 
 	BaseInput <- function(_){}
-	
+
+bIgnoreDataStringInput <- true;
 function Input( nInput )
 {
 	local nRequestedArrayIndex = nInput - INPUTKEY;
@@ -69,7 +70,8 @@ function Input( nInput )
 		
 	DataRequested( nRequestedArrayIndex );
 	
-	BaseInput( nInput );
+	if ( bIgnoreDataStringInput )
+		BaseInput( nInput );
 }
 
 }		// SERVER ^
