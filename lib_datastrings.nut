@@ -70,7 +70,7 @@ function Input( nInput )
 		
 	DataRequested( nRequestedArrayIndex );
 	
-	if ( bIgnoreDataStringInput )
+	if ( !bIgnoreDataStringInput )
 		BaseInput( nInput );
 }
 
