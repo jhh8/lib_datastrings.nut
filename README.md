@@ -13,6 +13,7 @@ Usage:
 Notes:
 - this library reserves the int 63, do not use int 63. Same for the native self.SetString(0)
 - the strings will be a bit shorter than 256 bytes because of some info we have to add to the strings themselves, depending on the index of the string and how many have been sent before (~240 string length is safe, 230 is very safe)
+- trying to do GetString on a string which has not been set or has not been received by the client yet will return null instead of empty string (empty array for arrays)
 - DC1 character (ascii = 17) is used in datastrings as a stringinfo seperator, using it in your string will cut it (treated as null terminator basically, todo: fix this)
 - the array functionality only supports arrays that contain integers, floats, strings (smaller than ~240 length) and null. Nested arrays, tables and instances turn to null
 - arrays do have an arbitrary maximum length, exceeding it will lead to collisions with other arrays. Maximum length is all elements turned to strings (referred to as "string length" in the next note) being over ~240000 bytes
